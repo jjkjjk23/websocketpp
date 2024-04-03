@@ -1843,8 +1843,6 @@ void connection<config>::write_frame() {
         
         general << "Dispatching write containing " << m_current_msgs.size()
                 <<" message(s) containing ";
-        header << "Header Bytes: \n";
-        payload << "Payload Bytes: \n";
         
         size_t hbytes = 0;
         size_t pbytes = 0;
@@ -1883,6 +1881,7 @@ void connection<config>::write_frame() {
         m_send_buffer,
         m_write_frame_handler
     );
+    printf("Should have successfully sent the message\n");
 }
 
 template <typename config>
