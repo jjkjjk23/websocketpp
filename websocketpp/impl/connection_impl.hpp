@@ -1842,7 +1842,7 @@ void connection<config>::write_frame() {
         std::stringstream general,header,payload;
         
         general << "Dispatching write containing " << m_current_msgs.size()
-                <<" message(s) containing ";
+                <<" message(s) \n";
         
         size_t hbytes = 0;
         size_t pbytes = 0;
@@ -1871,9 +1871,9 @@ void connection<config>::write_frame() {
         
         general << hbytes << " header bytes and " << pbytes << " payload bytes";
         
-        m_alog->write(log::alevel::frame_header,general.str());
+        /*m_alog->write(log::alevel::frame_header,general.str());
         m_alog->write(log::alevel::frame_header,header.str());
-        m_alog->write(log::alevel::frame_payload,payload.str());
+        m_alog->write(log::alevel::frame_payload,payload.str());*/
     }
     }
 
