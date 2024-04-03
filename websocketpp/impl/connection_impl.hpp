@@ -1871,9 +1871,9 @@ void connection<config>::write_frame() {
         
         general << hbytes << " header bytes and " << pbytes << " payload bytes";
         
-        /*m_alog->write(log::alevel::frame_header,general.str());
-        m_alog->write(log::alevel::frame_header,header.str());
-        m_alog->write(log::alevel::frame_payload,payload.str());*/
+        m_alog->write(log::alevel::frame_header,general.str());
+        //m_alog->write(log::alevel::frame_header,header.str());
+        //m_alog->write(log::alevel::frame_payload,payload.str());*/
     }
     }
 
@@ -1881,7 +1881,7 @@ void connection<config>::write_frame() {
         m_send_buffer,
         m_write_frame_handler
     );
-    printf("Should have successfully sent the message\n");
+    m_alog->write(log::alevel::frame_header, "Should have successfully sent the message\n");
 }
 
 template <typename config>
